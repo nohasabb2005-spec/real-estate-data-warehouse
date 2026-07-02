@@ -1,12 +1,9 @@
-{{ config(
-    materialized='table',
-    schema='SILVER'
-) }}
+
 
 WITH source AS (
 
     SELECT *
-    FROM {{ source('bronze', 'RAW_LISTINGS') }}
+    FROM REAL_ESTATE_DB.BRONZE.RAW_LISTINGS
 
 ),
 cleaned AS (

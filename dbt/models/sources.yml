@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: REAL_ESTATE_DB
+    schema: BRONZE
+
+    tables:
+      - name: RAW_LISTINGS
+        description: "Table contenant les données brutes des annonces immobilières chargées depuis le fichier CSV."
+
+        columns:
+          - name: listing_id
+            description: "Identifiant unique de l'annonce."
+            tests:
+              - not_null
+
+          - name: property_type
+          - name: country
+          - name: city
+          - name: neighborhood
+          - name: surface_m2
+          - name: num_rooms
+          - name: num_bathrooms
+          - name: floor
+          - name: year_built
+          - name: price
+          - name: listing_date
+          - name: condition
+          - name: heating_type
+          - name: parking
+          - name: energy_rating

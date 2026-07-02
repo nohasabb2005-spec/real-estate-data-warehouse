@@ -1,0 +1,21 @@
+name: 'real_estate'
+version: '1.0'
+config-version: 2
+
+profile: 'real_estate'
+
+model-paths: ["dbt/models"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  real_estate:
+    +materialized: table
+
+    silver:
+      +materialized: table
+
+    gold:
+      +materialized: table
