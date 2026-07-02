@@ -1,12 +1,17 @@
-{{ config(
-    materialized='table',
-    schema='SILVER'
-) }}
+
+  
+    
+
+create or replace transient table REAL_ESTATE_DB.SILVER.silver_listings
+    
+    
+    
+    as (
 
 WITH source AS (
 
     SELECT *
-    FROM {{ source('bronze', 'RAW_LISTINGS') }}
+    FROM REAL_ESTATE_DB.BRONZE.RAW_LISTINGS
 
 ),
 cleaned AS (
@@ -115,3 +120,8 @@ CROSS JOIN stats s
 WHERE c.rn = 1
   AND c.price BETWEEN 10000 AND 100000000
   AND COALESCE(c.surface_m2, s.median_surface_m2) BETWEEN 10 AND 5000
+    )
+;
+
+
+  

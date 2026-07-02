@@ -1,0 +1,14 @@
+real_estate:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: pi44518.eu-west-3.aws
+      user: FATIMAEZZAHRA
+      password: Fatimafatima12345
+      role: ACCOUNTADMIN
+      database: REAL_ESTATE_DB
+      warehouse: COMPUTE_WH
+      schema: PUBLIC
+      threads: 4
+      client_session_keep_alive: false
