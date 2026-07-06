@@ -1,0 +1,41 @@
+services:
+  airflow:
+    build: .
+    container_name: airflow
+
+    ports:
+      - "8081:8080"
+
+    volumes:
+      - airflow_home:/opt/airflow
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./python:/opt/airflow/python
+      - ./dbt:/opt/airflow/dbt
+
+    env_file:
+      - .env
+
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      # Optionnel, pour du parallélisme plus tard :
+      # AIRFLOW__CORE__EXECUTOR: LocalExecutor
+
+    command: >
+      bash -c "
+      airflow db migrate &&
+      airflow users create \
+        --username nouhaila \
+        --password admin123 \
+        --firstname Admin \
+        --lastname Admin \
+        --role Admin \
+        --email admin@gmail.com || true &&
+      airflow scheduler &
+      exec airflow webserver
+      "
+
+volumes:
+  airflow_home:
