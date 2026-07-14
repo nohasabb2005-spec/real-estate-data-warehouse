@@ -36,15 +36,17 @@ The pipeline performs the following tasks:
 ```text
 real-estate-data-warehouse/
 │
+├──data
+│   └── real-estate-raw.csv
 ├── .vscode/
 │   └── settings.json
 │
+├── Dashboard
+│   └── Analyse_Immobilier_Mondial.pbix
 ├── dags/
 │   ├── __pycache__/
-│   ├── dag.py
-│   └── data/
-│       └── real-estate-raw.csv
-│
+│   └── dag.py
+│   
 ├── dbt/
 │   ├── logs/
 │   │   └── dbt.log
@@ -317,3 +319,12 @@ real_estate_pipeline
 # 📄 License
 
 This project was developed for educational purposes as part of the **INT-Maroc Data Analyst Training Program**.
+# 📊 Dashboard
+# Page 1
+<img width="1429" height="797" alt="image" src="https://github.com/user-attachments/assets/bf6d129f-a0d7-48f6-8abc-27c292a2e340" />
+# Page 2
+<img width="1424" height="794" alt="image" src="https://github.com/user-attachments/assets/1b1ce0e3-5a9b-4158-884c-abf3414d61c9" />
+# Page 3
+<img width="1427" height="800" alt="image" src="https://github.com/user-attachments/assets/4452fbd6-046e-49f2-87db-fa09602076bf" />
+
+
